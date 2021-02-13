@@ -1,120 +1,81 @@
-#define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
-//写一个函数，判断一个数是否为素数
-//int is_prime(int n)
+////////////////////////////////////////
+//递归
+//最简单的递归
+//int main()
 //{
-//	int j = 0;
-//	for (j = 2; j <= sqrt(n); j++)
+//	printf("hehe\n");
+//	main();
+//	return 0;
+//}//error：stack overflow -- 栈溢出
+//栈区 --局部变量，函数形参
+//堆区 --动态开辟的内存，malloc，calloc
+//静态区 --全局变量，static修饰的变量
+//
+//递归的必要条件：
+//1·存在限制条件，当满足这个限制条件的时候，递归便不再继续
+//2·每次递归调用之后越来越接近这个限制条件。
+//
+//接受一个整型值（无符号），按照顺序打印它的每一位。 例如： 输入：1234，输出 1 2 3 4.
+//void print(n)
+//{
+//	if (n > 9)
 //	{
-//		if (n % j == 0)
-//		{
-//			return 0;
-//		}
+//		print(n / 10);
+//
 //	}
-//	return 1;
+//	printf("%d ", n % 10);
 //}
 //int main()
 //{
-//	int i = 0;
-//	int count = 0;
-//	for (i = 101; i <= 200; i+=2)
-//	{
-//		if (is_prime(i) == 1)
-//		{
-//			printf("%d\n", i);
-//			count++;
-//		}
-//
-//	}
-//	printf("\n总共有%d个素数\n", count);
+//	unsigned int num = 0;
+//	scanf("%d", &num);
+//	print(num);
+//	//print(1234)
+//	//print(123)4
+//	//print(12)3 4
+//	//print(1)2 3 4
 //	return 0;
 //}
-//判断是否是闰年
-//int is_leap_year(int y)
+//编写函数，求字符串的长度
+//int my_strlen(char* str)
 //{
-//	if ((y % 4 == 0 && y % 100 != 0) || y % 400 == 0)
-//		return 1;
+//	int count = 0;
+//	while (*str != '\0')
+//	{
+//		count++;
+//		str++;
+//
+//	}
+//	return count;
+//}
+//int main()
+//{
+//	char arr[] = { "XJTU" };
+//	//intlen = strlen(arr);//求字符串长度
+//	//printf()；
+//	//
+//	//模拟实现了一个strlen函数
+//	int len = my_strlen(arr);//arr是数组，数组传参，传过去的不是整个数组，而是第一个元素的地址
+//	printf("len = %d\n", len);
+//	return 0;
+//}
+//如果不允许创建临时变量(count)呢？
+//int my_strlen(char* str)
+//{
+//	//总是判断第一个字符是否为“\0”，如果不是，剥离出来，如此递归
+//	if (*str != '\0')
+//		return 1 + my_strlen(1 + str);
 //	else
 //		return 0;
 //}
 //int main()
 //{
-//	int year = 0;
-//	for (year = 1000; year <= 2000; year++)
-//	{
-//		if (1 == is_leap_year(year))
-//		{
-//			printf("%d\n", year);
-//		}
-//	}
-//	return 0;
-//}
-//二分查找
-//在一个有序数组中查找具体的某个数
-//如果找到了，返回下标；找不到，返回-1
-
-//int binary_search(int arr[], int k, int sz)//形参和实参名字相同没有影响
-//{
-//	//int sz = sizeof(arr) / sizeof(arr[0]);//错误！！！传递过来的arr[]是数组arr首元素的地址，-- 本质上，这里的arr是一个指针
-//	//主动传送进去sz
-//	int left = 0;
-//	int right = sz - 1;
-//	while (left <= right)
-//	{
-//		int mid = (left + right) / 2;
-//		if (arr[mid] < k)
-//		{
-//			left = mid + 1;
+//	char arr[] = { "XJTU" };
 //
-//		}
-//		else if (arr[mid] > k)
-//		{
-//			right = mid - 1;
-//
-//		}
-//		else
-//			return mid;
-//	}
-//	return -1;
-//}
-//int main()
-//{
-//	int arr[] = { 0,1,2,3,4,5,6,7,8,9 };
-//	int k = 7;
-//	int sz = sizeof(arr) / sizeof(arr[0]);
-//	int ret = binary_search(arr, k, sz);
-//	if (ret == -1)
-//	{
-//		printf("找不到指定的数字");
-//	}
-//	else
-//	{
-//		printf("找到了，下标是：%d\n", ret);
-//	}
-//	return 0;
-//}
-//写一个函数，每调用一次这个函数，就会将num的值增加1.
-//void Add(int* p)
-//{
-//	(*p)++;
-//}
-//int main()
-//{
-//	int num = 0;
-//	Add(&num);
-//	printf("%d\n", num);//1
-//	Add(&num);
-//	printf("%d\n", num);//2
-//	Add(&num);
-//	printf("%d\n", num);//3
-//	return 0;
-//}
-//函数的嵌套调用和链式访问
-//int main()
-//{
-//	printf("%d", printf("%d", printf("%d", 43)));//4321
-//	//printf()返回的是字符的个数
+//	int len = my_strlen(arr);
+//	printf("len = %d\n", len);
 //	return 0;
 //}
