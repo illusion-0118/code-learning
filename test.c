@@ -1,81 +1,102 @@
+#define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
-////////////////////////////////////////
-//递归
-//最简单的递归
-//int main()
+//递归与迭代
+//求n的阶乘
+//int Fac1(int n)
 //{
-//	printf("hehe\n");
-//	main();
-//	return 0;
-//}//error：stack overflow -- 栈溢出
-//栈区 --局部变量，函数形参
-//堆区 --动态开辟的内存，malloc，calloc
-//静态区 --全局变量，static修饰的变量
-//
-//递归的必要条件：
-//1·存在限制条件，当满足这个限制条件的时候，递归便不再继续
-//2·每次递归调用之后越来越接近这个限制条件。
-//
-//接受一个整型值（无符号），按照顺序打印它的每一位。 例如： 输入：1234，输出 1 2 3 4.
-//void print(n)
-//{
-//	if (n > 9)
+//	int i = 0;
+//	int ret = 1;
+//	for (i = 1; i <= n; i++)
 //	{
-//		print(n / 10);
-//
+//		ret *= i;
 //	}
-//	printf("%d ", n % 10);
+//	return ret;
 //}
-//int main()
+//int Fac2(int n)
 //{
-//	unsigned int num = 0;
-//	scanf("%d", &num);
-//	print(num);
-//	//print(1234)
-//	//print(123)4
-//	//print(12)3 4
-//	//print(1)2 3 4
-//	return 0;
-//}
-//编写函数，求字符串的长度
-//int my_strlen(char* str)
-//{
-//	int count = 0;
-//	while (*str != '\0')
-//	{
-//		count++;
-//		str++;
-//
-//	}
-//	return count;
-//}
-//int main()
-//{
-//	char arr[] = { "XJTU" };
-//	//intlen = strlen(arr);//求字符串长度
-//	//printf()；
-//	//
-//	//模拟实现了一个strlen函数
-//	int len = my_strlen(arr);//arr是数组，数组传参，传过去的不是整个数组，而是第一个元素的地址
-//	printf("len = %d\n", len);
-//	return 0;
-//}
-//如果不允许创建临时变量(count)呢？
-//int my_strlen(char* str)
-//{
-//	//总是判断第一个字符是否为“\0”，如果不是，剥离出来，如此递归
-//	if (*str != '\0')
-//		return 1 + my_strlen(1 + str);
+//	if (n <= 1)
+//		return 1;
 //	else
-//		return 0;
+//		return n * Fac2(n - 1);
 //}
 //int main()
 //{
-//	char arr[] = { "XJTU" };
+//	int n = 0;
+//	int ret = 0;
+//	scanf("%d", &n);
+//	ret = Fac2(n);
+//	printf("n!=%d\n", ret);
 //
-//	int len = my_strlen(arr);
-//	printf("len = %d\n", len);
 //	return 0;
 //}
+//描述第n个斐波那契数列
+//int Fib1(int n)
+//{
+//	if (n <= 2)
+//		return 1;
+//	else
+//		return Fib1(n - 1) + Fib1(n - 2);
+//}//使用递归会重复大量的运算，效率很低。。
+//int Fib2(int n)
+//{
+//	int a = 1;
+//	int b = 1;
+//	int c = 1;
+//	while (n > 2)
+//	{
+//		c = a + b;
+//		a = b;
+//		b = c;
+//		n--;
+//
+//	}
+//	return c;
+//}
+//int main()//TDD -- 测试驱动开发（先写主函数）
+//{
+//	int n = 0;
+//	int ret = 0;
+//	scanf("%d", &n);
+//	ret = Fib2(n);
+//	printf("ret=%d\n", ret);
+//	return 0;
+//}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//数组
+//一维数组的创建和初始化
+//数组是一组相同类型的元素的集合
+//数组的创建
+//int main()
+//{
+//	int arr[10] = {1,2,3};//不完全初始化
+//	char arr2[] = "abcdef";
+//	printf("%d\n",sizeof(arr2));//7
+//	//sizeof是计算数组所占空间的大小：7*1=7
+//	printf("%d\n", strlen(arr2));//6
+//	//strlen是求字符串长度，见到\0就停止，--6
+//	
+//	return 0;
+//}
+//strlen 和sizeof并没有什么关联
+//strlen只能求字符串长度 -- 库函数  -- 使用时要引头文件
+//sizeof是计算变量、数组、类型的大小，单位是字节 -- 操作符
+//int main()
+//{
+//	char arr1[] = "abc";
+//	char arr2[] = { 'a','b','c'};
+//	printf("%d\n", sizeof(arr1));//4
+//	printf("%d\n", sizeof(arr2));//3
+//	printf("%d\n", strlen(arr1));//3
+//	printf("%d\n", strlen(arr2));//
+//	return 0;
+//}
+//一维数组的使用
+//数组是下标访问的，下标是从0开始的
+int main()
+{
+	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+	int
+	return 0;
+}
