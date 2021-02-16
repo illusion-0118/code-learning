@@ -1,0 +1,2 @@
+E:\Users\admin\source\repos\game1\Debug\game1.exe
+E:\Users\admin\source\repos\game1\Debug\game1.pdb
